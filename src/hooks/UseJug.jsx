@@ -25,9 +25,13 @@ const UseJug = () => {
       setSteps(['This operation cannot be performed because Z is larger than X and Y.']);
     } else {
       const changes = SolveWaterJugBFS(X, Y, Z);
+      if (changes[0] !== 'No solution') {
+        changes.push('SOLVED');
+      }
       setSteps(changes);
     }
   };
+  
 
   return { X, Y, Z, steps, handleXChange, handleYChange, handleZChange, handleSolve };
 };
